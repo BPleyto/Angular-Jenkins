@@ -1,0 +1,100 @@
+img {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+  height: auto;
+  float: left;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.table {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  color: black;
+  font-size: 12px;
+  width: 600px;
+  margin-top: 30px;
+  float: right;
+}
+
+.form-control {
+  width: 150px;
+  height: 20px;
+}
+
+.form-check-input {
+  margin-left: 0px;
+}
+
+.btn.btn-primary {
+  font-size: 9px;
+  font-weight: bolder;
+  text-align: center;
+  color: black;
+  width: 80px;
+}
+
+.box {
+  margin: 0 auto;
+  width: 600px;
+  height: 270px;
+  padding: 20px;
+  background: white;
+  border: 2px solid #333;
+  float: right;
+  margin-top: 20px;
+  margin-right: 0px;
+}
+
+p {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+}
+
+.btn.btn-info {
+  font-size: 9px;
+  font-weight: bolder;
+  text-align: center;
+  color: black;
+  width: 60px;
+  margin-top: 9px;
+}
+
+.btn.btn-danger {
+  font-size: 9px;
+  font-weight: bolder;
+  text-align: center;
+  color: black;
+  width: 70px;
+  margin-left: 5px;
+  margin-top: 9px;
+}
+
+.alert.alert-success {
+  background-color: pink;
+  height: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.alert {
+  padding: 2px;
+  background-color: lightcoral;
+  color: white;
+  margin-bottom: 15px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 15px;
+  line-height: 20px;
+  cursor: pointer;
+}

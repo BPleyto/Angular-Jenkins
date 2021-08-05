@@ -1,0 +1,16 @@
+<div>
+    <div class="error" *ngSwitchCase="'updateError'">
+      Unable to update order. Something went wrong.
+      <a (click)="removeAlert()"> ☒</a>
+    </div>
+
+    <div class="error" *ngSwitchCase="'deleteError'">
+      Unable to delete order. Something went wrong.
+      <a (click)="removeAlert()"> ☒</a>
+    </div>
+
+    <div class="error" *ngSwitchCase="'addError'">
+      Unable to add order. Something went wrong. <a (click)="removeAlert()"> ☒</a>
+    </div>
+
+</div>

@@ -1,0 +1,150 @@
+<div class="alert" role="alert" *ngIf='deleteMessage'>
+    {{ deleteMessage }}
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+</div>
+<div class="alert" role="alert" *ngIf='addMessage'>
+  {{ addMessage }}
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+</div>
+
+<div class="container">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <form #orderForm="ngForm" (ngSubmit)="addOrder(orderForm.value)">
+        <div class="form-group">
+          <table class="table table-bordered" >
+            <thead>
+                    <tr style="background-color: powderblue;">
+                      <th >Order</th>
+                      <th >Price</th>
+                      <th >5% Off Promo</th>
+                      <th >Action</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><input
+                        id="orderName"
+                        type="text"
+                        name="orderName"
+                        class="form-control"
+                        ngModel name="orderName"
+                        required
+                    > </td>
+                  <td><input
+                        id="orderPrice"
+                        type="number"
+                        name="price"
+                        class="form-control"
+                        ngModel name="price"
+                        placeholder="0"
+                        required
+                      > </td>
+                  <td><div class="form-group form-check text-center">
+                    <input
+                        type="checkbox"
+                        id="discounted"
+                        name="discounted"
+                        class="form-check-input"
+                        value="1"
+                      >
+                    </div>
+                  </td>
+                  <td >
+                      <div class="button">
+                            <button type="submit" class="btn btn-primary" id="add">Place Order</button>
+                      </div>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+      <div  id = "div1" >
+        <img src="assets\images\menu.png" class="card" alt="...">
+      </div>
+      <table class="table table-striped table-bordered table-hover" style="margin-top: 5px;" id="order">
+        <thead>
+          <tr>
+            <th
+              class="text-center"
+              colspan="6"
+              style="background-color: white; color: black">
+              Attending Clerk: {{ clerk }}
+            </th>
+          </tr>
+        </thead>
+            <thead>
+              <tr class="info" style="background-color: powderblue;">
+                <th >Order</th>
+                <th >Price</th>
+                <th >5% Off Promo</th>
+                <th >Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="cursor: pointer" *ngFor="let order of orders">
+                <td> <span>{{order.orderName}}</span></td>
+                <td><span>{{order.price}}</span></td>
+                <td><input
+                      type="checkbox"
+                      class="form-check-input"
+                      disabled
+                      [checked]="order.is_Discounted == true"
+                    ></td>
+                <button class="btn btn-info" (click)="editOrder(order)" id="edit">Edit</button>
+                <button class="btn btn-danger" (click)="deleteOrder(order.id)" id="delete">Delete</button>
+              </tr>
+
+              <tr *ngIf="editMode">
+                <td>
+                  <input
+                    type="text"
+                    [ngModel]="edit.orderName"
+                    #orderName
+                    id="orderName"
+                    class="form-control"
+                    name="orderName"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    [ngModel]="edit.price"
+                    #price
+                    id="price"
+                    class="form-control"
+                    name="price"
+                  />
+                </td>
+                <td>
+                  <div class="form-group form-check text-center">
+                    <input
+                      type="checkbox"
+                      id="discounted"
+                      #discounted
+                      name="discounted"
+                      class="form-check-input"
+                    />
+                  </div>
+                </td>
+                <td class="text-center" style="cursor: pointer">
+                  <a class="action" (click)="updateOrder(order)" id="update">Update</a> |
+                  <a class="action" (click)="cancelOrder()" id="cancel">Cancel</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="text-center" colspan="6" style="font-size: bold">
+                  Total Regular Bill: {{ totalRegularBill }}
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center" colspan="6" style="font-size: bold">
+                  Total Discounted Bill: {{ totalDiscountBill }}
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
